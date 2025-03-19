@@ -642,7 +642,7 @@ class Image
     private function extractExifDataAndSetOrientation()
     {
         if ($this->isJpeg()) {
-            $exifData = exif_read_data($this->base64Encoded);
+            $exifData = @exif_read_data($this->base64Encoded);
             $this->orientation = !empty($exifData['Orientation'])
                 ? (int) $exifData['Orientation']
                 : 0;
